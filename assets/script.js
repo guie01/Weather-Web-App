@@ -1,7 +1,6 @@
 var topCities = ["Orlando", "Honolulu", "Las Vegas", "Miami", "Los Angeles"];
 
-
-// 
+// Function that creates Top Cities searched
 function renderButtons() {
 
     $("#city-buttons").empty();
@@ -26,9 +25,24 @@ function renderButtons() {
     event.preventDefault();
     // This line grabs the input from the textbox
     var cityInput = $("#city-input").val().trim();
-
     // Adding city from the textbox and push it to our array
     topCities.push(cityInput);
+
+    //AJAX CALL 
+    cityName = cityInput;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+    
+    
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+
+        })
+        .then(function (response) {
+          console.log(queryURL);
+
+          console.log(response);
+        })
 
     renderButtons();
   });
