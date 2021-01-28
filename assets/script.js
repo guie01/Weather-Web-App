@@ -1,5 +1,7 @@
 var topCities = ["Orlando", "Honolulu", "Las Vegas", "Miami", "Los Angeles"];
 
+
+// 
 function renderButtons() {
 
     $("#city-buttons").empty();
@@ -17,5 +19,18 @@ function renderButtons() {
       $("#city-buttons").append(a);
     }
   }
+
+// This function adds buttons cities previously searched
+
+  $("#city-inputbtn").on("click", function(event) {
+    event.preventDefault();
+    // This line grabs the input from the textbox
+    var cityInput = $("#city-input").val().trim();
+
+    // Adding city from the textbox and push it to our array
+    topCities.push(cityInput);
+
+    renderButtons();
+  });
 
   renderButtons();
