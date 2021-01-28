@@ -21,9 +21,10 @@
     justify-content: center;
 }
 
-#button-addon2:hover{
+#city-inputbtn:hover{
     background: #78b6f0;
 }
+
 .cities-btn{
     background-color: white;
     margin-left: 2%;
@@ -47,3 +48,35 @@
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
     }
+
+#cities-container{
+    text-align: center;
+    margin-top: 40px;
+    background-color: white;
+    margin-left: 2%;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    margin-left: 10%;
+}
+#weather-container{
+    text-align: center;
+    margin-top: 40px;
+    background-color: white;
+    margin-left: 2%;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+}
