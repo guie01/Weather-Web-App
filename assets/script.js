@@ -31,7 +31,7 @@ function renderButtons() {
     //AJAX CALL 
     cityName = cityInput;
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
-    
+                  
     
       $.ajax({
         url: queryURL,
@@ -42,9 +42,58 @@ function renderButtons() {
           console.log(queryURL);
 
           console.log(response);
+
+          var cityContainer = $("<div>");
+          var cityTitle = $("<h1>");
+
+          cityContainer.append(cityTitle);
+          cityTitle.text(response.name);
+          $("#cities-container").append(cityContainer);
         })
+
+        var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+
+        $.ajax({
+          url: queryURL2,
+          method: "GET"
+  
+          })
+          .then(function (response) {
+            console.log(queryURL2);
+  
+            console.log(response); 
+
+            var forecastDay1Cont = $("<div>");
+            var forecastDay1Date = $("<p>");
+            var forecastDay1Img = $("<img>");
+            var forecastDay1Temp = $("<p>");
+            var forecastDay1Hum = $("<p>");
+
+            forecastDay1Cont.append(forecastDay1Date);
+            forecastDay1Cont.attr("id", "forecast-cont");
+            forecastDay1Date.text(moment(response.list[4].dt_txt).format('L'));
+            $("#weather-container").append(forecastDay1Cont);
+
+            forecastDay1Cont.append(forecastDay1Img);
+            var imgIcon = response.list[4].weather[0].icon;
+            forecastDay1Img.attr("src", "http://openweathermap.org/img/wn/" + imgIcon + "@2x.png");
+          })
+
+      //   <div id = city-titlecont>
+      //   <h1 class = city-title>Atlanta</h1>
+      //   </div>
+      // <div id = city-temp>TEMP</div>
+      // <div id = city-humidity>HUMIDITY</div>
+      // <div id = city-uvindex>UV INDEX</div>
+
+
 
     renderButtons();
   });
 
   renderButtons();
+
+
+  for(var i = 4; i<37; i+=8){
+    console.log(i);
+  }
