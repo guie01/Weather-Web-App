@@ -53,7 +53,6 @@
     text-align: center;
     margin-top: 40px;
     background-color: white;
-    margin-left: 2%;
     font-size: 12px;
     text-transform: uppercase;
     text-decoration: none;
@@ -63,20 +62,45 @@
     border: none;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    margin-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 350px;
 }
 #weather-container{
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: white;
+    margin-left: 2%;
+    margin-right: auto;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    height: 300px;
+    width: 1475px;
+
+}
+
+#forecast-cont{
     background-color: white;
     margin-left: 2%;
     font-size: 12px;
     text-transform: uppercase;
     text-decoration: none;
+    color: rgb(255, 255, 255) !important;
+    background: rgba(26, 103, 219, 0.678);
     padding: 20px;
     border-radius: 5px;
     display: inline-block;
     border: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    height: 220px;
+    width: 250px;
 }
