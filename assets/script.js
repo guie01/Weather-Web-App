@@ -1,4 +1,5 @@
-var topCities = ["Orlando", "Honolulu", "Las Vegas", "Miami", "Los Angeles"];
+var searches = JSON.parse(localStorage.getItem("searches")) || ["Orlando", "Honolulu", "Las Vegas", "Miami", "Los Angeles"];
+
 
 // Function that creates Top Cities searched
 function renderButtons() {
@@ -6,14 +7,14 @@ function renderButtons() {
     $("#city-buttons").empty();
 
     // Looping through the array of movies
-    for (var i = 0; i < topCities.length; i++) {
+    for (var i = 0; i < searches.length; i++) {
 
       var a = $("<button>");
       a.addClass("cities-btn");
       // Adding a data-attribute
-      a.attr("data-name", topCities[i]);
+      a.attr("data-name", searches[i]);
       // Providing the initial button text
-      a.text(topCities[i]);
+      a.text(searches[i]);
       // Adding the button to the buttons-view div
       $("#city-buttons").append(a);
     }
@@ -23,10 +24,15 @@ function renderButtons() {
 
   $("#city-inputbtn").on("click", function(event) {
     event.preventDefault();
+    $("#cities-container").empty();
+    $("#weather-container").empty();
+    $("#weather-container").append($("<h4>").text("Forecast").append());
+
     // This line grabs the input from the textbox
     var cityInput = $("#city-input").val().trim();
     // Adding city from the textbox and push it to our array
-    topCities.push(cityInput);
+    searches.push(cityInput);
+    localStorage.setItem("searches", JSON.stringify(searches));
 
     //AJAX CALL 
     cityName = cityInput;
@@ -62,10 +68,32 @@ function renderButtons() {
           cityWind.text("Wind Speed: " + response.wind.speed);
           $("#cities-container").append(cityWind);
 
-          // //UV
-          // cityUV.text("Wind Speed: " + response.wind.speed);
-          // $("#cities-container").append(cityUV);
-        })
+          // var queryURLUV = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon="+ lon + "&appid=7711a0edefc76492174a095e3f34f4d7";
+
+          // var lon = response.coord.lon;
+          // var lat = response.coord.lat;
+
+          // console.log(lon);
+          // console.log(lat);
+
+          // $.ajax({
+          //   url: queryURLUV,
+          //   method: "GET"
+    
+          //   })
+          //   .then(function (response) {
+          //     console.log(queryURLUV);
+    
+          //     console.log(response);
+              //UV
+              // cityUV.text("Wind Speed: " + response.wind.speed);
+              // $("#cities-container").append(cityUV);
+          //})
+
+
+         })
+
+
 
         var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
 
@@ -78,8 +106,8 @@ function renderButtons() {
             console.log(queryURL2);
   
             console.log(response); 
-            
-            for(var i = 4; i<37; i+=8){
+            // 5 day for loop
+            for(var i = 6; i<39; i+=8){
               console.log(i);
 
             var forecastDay1Cont = $("<div>");
@@ -110,18 +138,10 @@ function renderButtons() {
             }
           })
 
-      //   <div id = city-titlecont>
-      //   <h1 class = city-title>Atlanta</h1>
-      //   </div>
-      // <div id = city-temp>TEMP</div>
-      // <div id = city-humidity>HUMIDITY</div>
-      // <div id = city-uvindex>UV INDEX</div>
-
-
 
     renderButtons();
   });
-
+  
   renderButtons();
 
 
