@@ -45,10 +45,26 @@ function renderButtons() {
 
           var cityContainer = $("<div>");
           var cityTitle = $("<h1>");
+          var cityHumid = $("<p>");
+          var cityWind = $("<p>");
+          var cityUV = $("<p>");
 
+          //Title
           cityContainer.append(cityTitle);
           cityTitle.text(response.name);
           $("#cities-container").append(cityContainer);
+
+          //Humidity
+          cityHumid.text("Humidity: " + response.main.humidity);
+          $("#cities-container").append(cityHumid);
+
+          //Wind
+          cityWind.text("Wind Speed: " + response.wind.speed);
+          $("#cities-container").append(cityWind);
+
+          // //UV
+          // cityUV.text("Wind Speed: " + response.wind.speed);
+          // $("#cities-container").append(cityUV);
         })
 
         var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
@@ -62,6 +78,9 @@ function renderButtons() {
             console.log(queryURL2);
   
             console.log(response); 
+            
+            for(var i = 4; i<37; i+=8){
+              console.log(i);
 
             var forecastDay1Cont = $("<div>");
             var forecastDay1Date = $("<p>");
@@ -69,14 +88,26 @@ function renderButtons() {
             var forecastDay1Temp = $("<p>");
             var forecastDay1Hum = $("<p>");
 
+            
+          
             forecastDay1Cont.append(forecastDay1Date);
             forecastDay1Cont.attr("id", "forecast-cont");
-            forecastDay1Date.text(moment(response.list[4].dt_txt).format('L'));
+            forecastDay1Date.text(moment(response.list[i].dt_txt).format('L'));
             $("#weather-container").append(forecastDay1Cont);
 
+            //Icon
             forecastDay1Cont.append(forecastDay1Img);
-            var imgIcon = response.list[4].weather[0].icon;
+            var imgIcon = response.list[i].weather[0].icon;
             forecastDay1Img.attr("src", "http://openweathermap.org/img/wn/" + imgIcon + "@2x.png");
+
+            //Temp
+            forecastDay1Cont.append(forecastDay1Temp);
+            forecastDay1Temp.text("Temp: "+ response.list[i].main.temp);
+            
+            //Humid
+            forecastDay1Cont.append(forecastDay1Hum);
+            forecastDay1Hum.text("Humidity: " + response.list[i].main.humidity);
+            }
           })
 
       //   <div id = city-titlecont>
@@ -94,6 +125,4 @@ function renderButtons() {
   renderButtons();
 
 
-  for(var i = 4; i<37; i+=8){
-    console.log(i);
-  }
+  
