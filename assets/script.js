@@ -91,8 +91,21 @@ function renderTopSearches() {
     
               console.log(response);
               // UV Index 
-              cityUV.text("UV Index: " + response.current.uvi);
+
+              var uvIndex = response.current.uvi
+              cityUV.text("UV Index: " + uvIndex);
               $("#cities-container").append(cityUV);
+
+              if(uvIndex<4){
+                cityUV.css("color","green");
+                cityUV.css("font-weight","700");
+              } else if(uvIndex>10){
+                cityUV.css("color","red");
+                cityUV.css("font-weight","700");
+              } else{
+                cityUV.css("color","yellow");
+                cityUV.css("font-weight","700");
+              }
           })
 
 
