@@ -35,6 +35,7 @@ function displayInformation (cityInput){
   $("#cities-container").empty();
   $("#weather-container").empty();
   $("#weather-container").append($("<h4>").text("Forecast").append());
+
   //AJAX CALL 
   cityName = cityInput;
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
@@ -162,12 +163,8 @@ function displayInformation (cityInput){
   }; 
   renderTopSearches();
 
-
-$(".cities-btn").on("click", function(event){
+  
+$("#city-buttons").on("click", ".cities-btn", function(event){
   var cityClicked = event.target.getAttribute("data-name");
   displayInformation(cityClicked);
 })
-
-
-
-  
