@@ -162,10 +162,8 @@ function renderTopSearches() {
   });
 
   
-
-
-
   renderTopSearches();
 
+//need to add functionality to the buttons rendered!!!!!
 
   
