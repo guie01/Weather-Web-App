@@ -7,3 +7,4 @@ This web application is capable of providing the weather information for all cit
 ![Capture2](https://user-images.githubusercontent.com/73205731/106371533-773e8500-6333-11eb-86bf-3f3d58540420.PNG)
 
 
+Sample: https://guie01.github.io/Weather-Web-App/
