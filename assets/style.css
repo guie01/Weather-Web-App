@@ -25,7 +25,7 @@
     background: #78b6f0;
 }
 
-.cities-btn{
+.cities-btn {
     background-color: white;
     margin-left: 2%;
     font-size: 12px;
@@ -39,7 +39,9 @@
     border: none;
     transition: all 0.4s ease 0s;
 }
-
+.cities-btn:hover{
+    box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+}
 
 
 #cities-container{
@@ -53,8 +55,7 @@
     border-radius: 5px;
     display: inline-block;
     border: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     margin-left: auto;
     margin-right: auto;
     height: 200px;
@@ -74,8 +75,7 @@
     border-radius: 5px;
     display: inline-block;
     border: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     height: 300px;
     width: 1475px;
 

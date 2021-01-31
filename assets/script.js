@@ -168,6 +168,6 @@ $(".cities-btn").on("click", function(event){
   displayInformation(cityClicked);
 })
 
-//need to add functionality to the buttons rendered!!!!!
+
 
   
