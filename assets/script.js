@@ -21,7 +21,7 @@ function renderTopSearches() {
   }
 
 // This function adds buttons cities previously searched
-
+function displayInformation (){
   $("#city-inputbtn").on("click", function(event) {
     event.preventDefault();
     $("#cities-container").empty();
@@ -91,8 +91,8 @@ function renderTopSearches() {
               console.log(queryURLUV);
     
               console.log(response);
-              // UV Index 
 
+              // UV Index 
               var uvIndex = response.current.uvi
               cityUV.text("UV Index: " + uvIndex);
               $("#cities-container").append(cityUV);
@@ -160,9 +160,12 @@ function renderTopSearches() {
           
     renderTopSearches();
   });
-
-  
+} 
   renderTopSearches();
+
+  $("#cities-btn").on("click", function(){
+    displayInformation();
+  })
 
 //need to add functionality to the buttons rendered!!!!!
 
