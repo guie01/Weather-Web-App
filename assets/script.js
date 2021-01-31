@@ -2,7 +2,7 @@ var searches = JSON.parse(localStorage.getItem("searches")) || ["Orlando", "Hono
 
 
 // Function that creates Top Cities searched
-function renderButtons() {
+function renderTopSearches() {
 
     $("#city-buttons").empty();
 
@@ -53,6 +53,7 @@ function renderButtons() {
           var cityTitle = $("<h1>");
           var cityHumid = $("<p>");
           var cityWind = $("<p>");
+          var cityTemp = $("<p>");
           var cityUV = $("<p>");
 
           //Title
@@ -68,27 +69,31 @@ function renderButtons() {
           cityWind.text("Wind Speed: " + response.wind.speed);
           $("#cities-container").append(cityWind);
 
-          // var queryURLUV = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon="+ lon + "&appid=7711a0edefc76492174a095e3f34f4d7";
+          //Temp
+          cityTemp.text("Temperature " + response.main.temp);
+          $("#cities-container").append(cityTemp);
 
-          // var lon = response.coord.lon;
-          // var lat = response.coord.lat;
+          var lon = JSON.stringify(response.coord.lon);
+          var lat = JSON.stringify(response.coord.lat);
 
-          // console.log(lon);
-          // console.log(lat);
+          var queryURLUV = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude={part}&appid=7711a0edefc76492174a095e3f34f4d7";
 
-          // $.ajax({
-          //   url: queryURLUV,
-          //   method: "GET"
+          console.log(lon);
+          console.log(lat);
+
+          $.ajax({
+            url: queryURLUV,
+            method: "GET"
     
-          //   })
-          //   .then(function (response) {
-          //     console.log(queryURLUV);
+            })
+            .then(function (response) {
+              console.log(queryURLUV);
     
-          //     console.log(response);
-              //UV
-              // cityUV.text("Wind Speed: " + response.wind.speed);
-              // $("#cities-container").append(cityUV);
-          //})
+              console.log(response);
+              // UV Index 
+              cityUV.text("UV Index: " + response.current.uvi);
+              $("#cities-container").append(cityUV);
+          })
 
 
          })
@@ -138,11 +143,15 @@ function renderButtons() {
             }
           })
 
-
-    renderButtons();
+          
+    renderTopSearches();
   });
+
   
-  renderButtons();
+
+
+
+  renderTopSearches();
 
 
   
