@@ -20,24 +20,24 @@ function renderTopSearches() {
     }
   }
 
-// This function adds buttons cities previously searched
-function displayInformation (){
-  $("#city-inputbtn").on("click", function(event) {
-    event.preventDefault();
-    $("#cities-container").empty();
-    $("#weather-container").empty();
-    $("#weather-container").append($("<h4>").text("Forecast").append());
-
+  $("#city-inputbtn").on("click", function(event) { 
     // This line grabs the input from the textbox
     var cityInput = $("#city-input").val().trim();
-    
     // Adding city from the textbox and push it to our array
     searches.push(cityInput);
     localStorage.setItem("searches", JSON.stringify(searches));
+    displayInformation(cityInput);
+  });
 
-    //AJAX CALL 
-    cityName = cityInput;
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+// This function adds buttons cities previously searched
+function displayInformation (cityInput){
+  event.preventDefault();
+  $("#cities-container").empty();
+  $("#weather-container").empty();
+  $("#weather-container").append($("<h4>").text("Forecast").append());
+  //AJAX CALL 
+  cityName = cityInput;
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
                   
     
       $.ajax({
@@ -159,13 +159,14 @@ function displayInformation (){
 
           
     renderTopSearches();
-  });
-} 
+  }; 
   renderTopSearches();
 
-  $("#cities-btn").on("click", function(){
-    displayInformation();
-  })
+
+$(".cities-btn").on("click", function(event){
+  var cityClicked = event.target.getAttribute("data-name");
+  displayInformation(cityClicked);
+})
 
 //need to add functionality to the buttons rendered!!!!!
 
