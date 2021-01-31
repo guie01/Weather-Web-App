@@ -30,6 +30,7 @@ function renderTopSearches() {
 
     // This line grabs the input from the textbox
     var cityInput = $("#city-input").val().trim();
+    
     // Adding city from the textbox and push it to our array
     searches.push(cityInput);
     localStorage.setItem("searches", JSON.stringify(searches));
