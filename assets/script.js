@@ -135,7 +135,7 @@ function displayInformation (cityInput){
             var forecastDay1Img = $("<img>");
             var forecastDay1Temp = $("<p>");
             var forecastDay1Hum = $("<p>");
-
+            var forecastTest = $("<p>");
             
           
             forecastDay1Cont.append(forecastDay1Date);
