@@ -38,8 +38,11 @@ function displayInformation (cityInput){
 
   //AJAX CALL 
   cityName = cityInput;
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
-                  
+
+  if (location.protocol === 'http:') {
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+  } else {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";  }         
     
       $.ajax({
         url: queryURL,
@@ -168,3 +171,4 @@ $("#city-buttons").on("click", ".cities-btn", function(event){
   var cityClicked = event.target.getAttribute("data-name");
   displayInformation(cityClicked);
 })
+
