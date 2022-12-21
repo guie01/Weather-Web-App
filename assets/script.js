@@ -115,7 +115,7 @@ function displayInformation (cityInput){
 
 
 
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
 
         $.ajax({
           url: queryURL2,
