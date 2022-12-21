@@ -146,7 +146,7 @@ function displayInformation (cityInput){
             //Icon
             forecastDay1Cont.append(forecastDay1Img);
             var imgIcon = response.list[i].weather[0].icon;
-            forecastDay1Img.attr("src", "http://openweathermap.org/img/wn/" + imgIcon + "@2x.png");
+            forecastDay1Img.attr("src", "https://openweathermap.org/img/wn/" + imgIcon + "@2x.png");
 
             //Temp
             forecastDay1Cont.append(forecastDay1Temp);
