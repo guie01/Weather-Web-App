@@ -40,9 +40,9 @@ function displayInformation (cityInput){
   cityName = cityInput;
 
   if (location.protocol === 'http:') {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=7711a0edefc76492174a095e3f34f4d7";
   } else {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";  }         
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=7711a0edefc76492174a095e3f34f4d7";  }         
     
       $.ajax({
         url: queryURL,
@@ -75,7 +75,7 @@ function displayInformation (cityInput){
           $("#cities-container").append(cityWind);
 
           //Temp
-          cityTemp.text("Temperature " + response.main.temp);
+          cityTemp.text("Temperature " + (response.main.temp));
           $("#cities-container").append(cityTemp);
 
           var lon = JSON.stringify(response.coord.lon);
@@ -118,7 +118,7 @@ function displayInformation (cityInput){
 
 
 
-        var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7711a0edefc76492174a095e3f34f4d7";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=metric&appid=7711a0edefc76492174a095e3f34f4d7";
 
         $.ajax({
           url: queryURL2,
